@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+             x:Class="TwizzaAppShellExample.Pages.BotPage" BackgroundColor="DeepSkyBlue"
+             Title="Bot Navigation Example">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <skia:SKLottieView Grid.Row="0" VerticalOptions="CenterAndExpand" HeightRequest="400" Source="bot.json"
+                           RepeatCount="-1"
+                           />
+        <Button x:Name="BotButton"  Margin="15,0,15,0" Grid.Row="1" VerticalOptions="Start" Text="Open .NET Bot Demo Page" Clicked="BotButton_Clicked"/>
+    </Grid>
+</ContentPage>

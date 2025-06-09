@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TwizzaAppShellExample.Pages.MonkeyPage"
+             Title="{Binding Monkey.Name}">
+    <VerticalStackLayout>
+        <Frame Margin="5" Padding="0" CornerRadius="20" IsClippedToBounds="True">
+        <Image Margin="0" HeightRequest="400" Aspect="AspectFill" Source="{Binding Monkey.Image}"/>
+        </Frame>
+        <Label  Margin="15,20,15,0" FontSize="20" FontAttributes="Italic" Text="{Binding Monkey.Location}"/>
+        <Label  Margin="15,20,15,20" FontSize="Body" Text="{Binding Monkey.Details}"/>
+    </VerticalStackLayout>
+</ContentPage>

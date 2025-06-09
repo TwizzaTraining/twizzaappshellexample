@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="TwizzaAppShellExample.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:TwizzaAppShellExample.Pages"
+    xmlns:controls="clr-namespace:TwizzaAppShellExample.Controls"
+    Shell.FlyoutBehavior="Flyout"
+    FlyoutHeaderBehavior="CollapseOnScroll"
+    Title="Twizza AppShell Example">
+
+    <Shell.FlyoutHeader>
+        <controls:FlyoutHeader />
+    </Shell.FlyoutHeader>
+
+    <Shell.FlyoutFooter>
+        <controls:FlyoutFooter />
+    </Shell.FlyoutFooter>
+
+    <Shell.Resources>
+        <Style x:Key="BaseStyle"
+           TargetType="Element">
+            <Setter Property="Shell.BackgroundColor"
+                Value="#455A64" />
+            <Setter Property="Shell.ForegroundColor"
+                Value="White" />
+            <Setter Property="Shell.TitleColor"
+                Value="White" />
+            <Setter Property="Shell.DisabledColor"
+                Value="#B4FFFFFF" />
+            <Setter Property="Shell.UnselectedColor"
+                Value="#95FFFFFF" />
+        </Style>
+        <Style TargetType="ShellItem"
+           BasedOn="{StaticResource BaseStyle}" />
+    </Shell.Resources>
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid HorizontalOptions="FillAndExpand" ColumnDefinitions="0.2*,0.8*" HeightRequest="50">
+
+                <Image Source="{Binding FlyoutIcon}"
+                       Margin="5"
+                       HeightRequest="24" />
+                <Label Grid.Column="1"
+                       Text="{Binding Title}"
+                       FontSize="16"
+                       FontAttributes="None"
+                       VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Home" Icon="home_light.png"
+                Style="{StaticResource BaseStyle}"
+        ContentTemplate="{DataTemplate local:HomePage}"
+        Route="HomePage" />
+
+        <ShellContent
+        Title="About"
+                    Icon="about_light.png"
+                Style="{StaticResource BaseStyle}"
+        ContentTemplate="{DataTemplate local:AboutPage}"
+              
+        Route="AboutPage" />
+
+    </FlyoutItem>
+
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title=".NET Bot Navigation"
+               Style="{StaticResource BaseStyle}"
+               Icon="bot_light.png"
+               ContentTemplate="{DataTemplate local:BotPage}" />
+    </FlyoutItem>
+
+
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Monkey Navigation"
+               Style="{StaticResource BaseStyle}"
+               Icon="monkey_light.png"
+               ContentTemplate="{DataTemplate local:MonkeyListPage}" />
+    </FlyoutItem>
+
+</Shell>
